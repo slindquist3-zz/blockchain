@@ -1,24 +1,40 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
-const Balance = (props) => {
 
-  const Total = styled.h3`
-    color: purple;
-  `;
+class Balance extends Component {
 
-  const convertIntegerToDollars = (integer) =>  {
-    return integer.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  constructor(props) {
+
+    super(props);
+
+    this.state = { currentBalance: props.balance}
+
   }
 
-  //lifecycle of access to props or compondent did update where we return balance string with balance
+  convertIntegerToDollars(integer) {
+    return integer.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-  return (
-    <div className="Balance">
-      Total Account Balance: {}
-    </div>
+  }
 
-  )
+
+  render() {
+
+    const Total = styled.h3`
+      color: purple;
+    `;
+
+
+    return (
+      <div className="Balance">
+        Total Account Balance: {this.props.balance}
+      </div>
+
+    )
+
+  }
+
+
 }
 
 export default Balance;

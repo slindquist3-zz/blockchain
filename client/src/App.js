@@ -16,13 +16,9 @@ class App extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
-    this.handleIntegers = this.handleIntegers.bind(this);
 
   }
 
-  handleIntegers(integer) {
-    return '$' + integer.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
 
   handleChange(event) {
     this.setState({ term: event.target.value }, console.log(this.state));
@@ -35,7 +31,6 @@ class App extends Component {
 
     const KEY = '1dice8EMZmqKvrGE4Qc9bUFf9PX3xaYDp';
 
-    // axios.get(`https://blockchain.info/rawaddr/${KEY}`)
     axios.get(`/blockchain/${KEY}`)
       .then((response) => {
 
@@ -61,7 +56,7 @@ class App extends Component {
     return (
       <div className="App">
         <SearchBar handleChange={this.handleChange} handleSearch={this.handleSearch} term={this.state.term} />
-        <SpreadSheet balance={this.state.balance} transations={this.state.transactions} />
+        <SpreadSheet balance={this.state.balance} transactions={this.state.transactions} />
       </div>
     );
   }

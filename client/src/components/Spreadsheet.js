@@ -12,7 +12,7 @@ const Spreadsheet = (props) => {
   return (
     <div className="Spreadsheet">
         <Balance balance={props.balance} />
-        <Transactions transations={props.transations} />
+        <Transactions transactions={props.transactions} />
     </div>
 
   )

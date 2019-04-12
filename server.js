@@ -1,23 +1,39 @@
+/* eslint-disable */
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const axios = require('axios');
 
 const app = express();
 const port = process.env.PORT || 5000;
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // API calls
-app.get('/api/hello', (req, res) => {
-  res.send({ express: 'Hello From Express' });
-});
+app.get('/blockchain/:address', (req, res) => {
 
-app.post('/api/world', (req, res) => {
-  console.log(req.body);
-  res.send(
-    `I received your POST request. This is what you sent me: ${req.body.post}`,
-  );
+  axios.get(`https://blockchain.info/rawaddr/${req.params.address}`)
+    .then((response) => {
+
+      // return transactions
+      console.log(response.data);
+      // return balance
+
+      res.json(response.data);
+      // might need a helper function to massage this data
+
+    })
+    .catch((error) => {
+      // handle error
+      console.log('Error', error);
+    })
+
 });
 
 if (process.env.NODE_ENV === 'production') {
@@ -25,9 +41,8 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')));
 
   // Handle React routing, return all requests to React app
-  app.get('*', function(req, res) {
+  app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 }
-
 app.listen(port, () => console.log(`Listening on port ${port}`));

@@ -10,36 +10,44 @@ class App extends Component {
 
     this.state = {
       term: '',
-      transations: []
+      balance: '',
+      transactions: []
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleIntegers = this.handleIntegers.bind(this);
 
-    // need a lifecycle method to run when state gets updated on onClick
-    // 1. on click updates state
-    // 2. when state updates, query the API with state term
-    // 3. render new data
+  }
+
+  handleIntegers(integer) {
+    return '$' + integer.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
   handleChange(event) {
     this.setState({ term: event.target.value }, console.log(this.state));
   }
 
+
+
   handleSearch() {
     console.log('Searching!!!');
-
 
     const KEY = '1dice8EMZmqKvrGE4Qc9bUFf9PX3xaYDp';
 
     // axios.get(`https://blockchain.info/rawaddr/${KEY}`)
     axios.get(`/blockchain/${KEY}`)
       .then((response) => {
-        // return transactions
-        console.log(response);
-        // //return balance
 
-        // might need a helper function to massage thinpms data
+        console.log(response.data.txs);
+        console.log(response.data.final_balance);
+
+        this.setState({ transactions: response.data.txs,
+                        balance: response.data.final_balance });
+                        //need to parse the balance when I pass to state
+
+        console.log(this.state);
+
       })
       .catch((error) => {
         // handle error
@@ -53,7 +61,7 @@ class App extends Component {
     return (
       <div className="App">
         <SearchBar handleChange={this.handleChange} handleSearch={this.handleSearch} term={this.state.term} />
-        <SpreadSheet balance="" transations="" />
+        <SpreadSheet balance={this.state.balance} transations={this.state.transactions} />
       </div>
     );
   }

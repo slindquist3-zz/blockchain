@@ -11,8 +11,8 @@ const Spreadsheet = (props) => {
 
   return (
     <div className="Spreadsheet">
-        <Balance balance="" />
-        <Transactions transations="" />
+        <Balance balance={props.balance} />
+        <Transactions transations={props.transations} />
     </div>
 
   )

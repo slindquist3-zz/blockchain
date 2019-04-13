@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import Header from './Header.js'
 import Balance from './Balance.js';
 
 import ReactTable from "react-table";
@@ -11,28 +10,42 @@ import 'react-table/react-table.css';
 const AddressDetails = (props) =>  {
 
   const columns = [{
-      Header: 'Hash',
-      accessor: 'hash'
-    },{
-      Header: 'Time',
-      accessor: 'time'
-  }];
+
+
+    Header: 'Transactions',
+    columns:
+      [{ Header: 'Hash',
+      accessor: 'hash',
+      width: 600 },
+      { Header: 'Time',
+      accessor: 'time',
+      width: 100 }]
+    }];
+
+
 
   const tableStyles = {
       backgroundColor: 'white',
       position: 'absolute',
-      top: '15%',
+      top: '35%',
       left: '50%',
       transform: 'translate(-50%, 0)',
-      width: '80%'
+  }
+
+  const detailsContainer = {
+    position: 'absolute',
+    maxWidth: '80%',
+    minWidth: '300px',
+    left: '50%',
+    transform: 'translate(-50%, 0)',
+    top: '30%'
   }
 
     return (
       <div className="AddressDetails">
 
       {props.showTable &&
-        <div>
-          <Header address={props.address} />
+        <div className="detailsContainer" style={detailsContainer}>
           <Balance balance={props.balance}/>
           <ReactTable
             data={props.transactions}

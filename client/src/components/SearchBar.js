@@ -16,7 +16,6 @@ import styled, {keyframes} from 'styled-components';
       border: none;
       padding-left: 80px;
       border-radius: 50px;
-      padding: '40px';
       transform: 'translate(-10%, 0)';
         @media (max-width: 700px) {
           left: 10px;
@@ -73,16 +72,33 @@ import styled, {keyframes} from 'styled-components';
       }
     `;
 
+    const BlockchainLogo = styled.img.attrs(({ src }) => ({
+      src: src,
+    }))`
+      width: 200px;
+      position: absolute;
+      left: 5%;
+      top: 40px;
+      z-index: 50;
+      @media (max-width: 700px) {
+        left: 30px;
+      }
+    `;
+
     const searchBarStyle = {
       position: 'absolute',
       backgroundColor: '#004a7c',
       width: `100%`,
+      padding: '30px 0'
     }
+
+
 
 
     return (
       <div className="SearchBar" style={searchBarStyle}>
-            <SearchIcon src={require("./search-icon.png" )}/>
+            <BlockchainLogo src={require("../assets/white-blockchain.svg")} />
+            <SearchIcon src={require("../assets/search-icon.png" )}/>
             <AddressInput type="text" placeholder="Enter Address" onChange={props.handleChange}/>
           <Button onClick={props.handleSearch}>Search</Button>
       </div>

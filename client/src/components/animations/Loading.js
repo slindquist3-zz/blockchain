@@ -5,9 +5,11 @@ import ClipLoader from 'react-spinners/ClipLoader';
 
 const override = css`
     display: block;
-    margin: 20% 20%;
+    margin: 25% 45%;
     border-color: red;
     position: absolute;
+    transform: translate(0, -50%);
+
 
 
 `;

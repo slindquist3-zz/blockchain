@@ -18,10 +18,15 @@ class Balance extends Component {
       color: purple;
     `;
 
+    const balanceStyle = {
+      position: 'absolute',
+      top: '40%'
+    }
+
 
     return (
-      <div className="Balance">
-        <div className="balance-value"></div>
+      <div className="Balance" style={balanceStyle}>
+        <Value>{this.state.currentBalance}</Value>
       </div>
 
     )

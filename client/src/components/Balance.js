@@ -27,7 +27,7 @@ class Balance extends Component {
 
     return (
       <div className="Balance">
-        Total Account Balance: {this.props.balance}
+         {this.props.balance}
       </div>
 
     )

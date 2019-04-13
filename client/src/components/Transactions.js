@@ -1,29 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
+import moment from 'moment'
 
 const Transactions = (props) => {
 
 
+const formatUnix = (unix) => {
 
-function convertUnixTime(unix) {
-
-  var date = new Date(unix *1000);
-  // Hours part from the timestamp
-  var hours = date.getHours();
-  // Minutes part from the timestamp
-  var minutes = "0" + date.getMinutes();
-  // Seconds part from the timestamp
-  var seconds = "0" + date.getSeconds();
-
-  // Will display time in 10:30:23 format
-  var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-
-  return formattedTime;
-
+  console.log(new Date(unix));
 }
 
 
-  let rows = props.transactions.map( (item, i) =><div key={i}>Hash: {item.hash} | <span>Time: {convertUnixTime(item.time)}</span></div>);
+//figure out how to convert the time since 1970 format to timestamp
+
+  let rows = props.transactions.map( (item, i) =><div key={i}>Hash: {item.hash} | <span>Time: {formatUnix(item.time)}</span></div>);
 
 
 

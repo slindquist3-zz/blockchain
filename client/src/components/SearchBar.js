@@ -25,7 +25,7 @@ export default class SearchBar extends Component {
             value={this.props.term}
             style={input}/>
 
-         <Button onClick={this.props.handleSearch}>Search</Button>
+          <Button onClick={this.props.handleState}>Search</Button>
       </div>
     );
   }

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-export default class SearchBar extends Component {
-
-  render() {
+ const SearchBar = (props) => {
 
     const input = {
       width: '400px',
@@ -16,20 +14,14 @@ export default class SearchBar extends Component {
       height: 40px;
       margin: 100px;
     `
+
     return (
       <div className="SearchBar">
-         <input
-            type="text"
-            placeholder="Your Search Here"
-            onChange={this.props.handleChange}
-            value={this.props.term}
-            style={input}/>
-
-          <Button onClick={this.props.handleState}>Search</Button>
+          <input type="text" placeholder="Your Search Here" style={input} onChange={props.handleChange}/>
+          <Button onClick={props.handleSearch}>Search</Button>
       </div>
-    );
-  }
-
-
+    )
 
 }
+
+export default SearchBar

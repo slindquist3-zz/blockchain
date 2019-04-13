@@ -3,8 +3,8 @@ import axios from 'axios';
 import { jsx } from '@emotion/core'
 
 import SearchBar from './components/SearchBar.js';
-import AddressDetails from './components/AddressDetails'
-import Loading from './components/animations/Loading.js'
+import AddressDetails from './components/AddressDetails';
+import Loading from './components/animations/Loading.js';
 
 class App extends Component {
   constructor(props) {
@@ -17,16 +17,30 @@ class App extends Component {
       loadingData: false
     };
 
-    this.handleState = this.handleState.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    // this.checkAddress = this.checkAddress.bind(this);
 
   }
 
-  handleState(event) {
-    this.setState({ address: event.target.value,loadingData: true}, this.handleSearch(this.state.address));
+  handleChange(event) {
+    this.setState({address: event.target.value})
   }
 
-  handleSearch(address) {
+  //
+  // checkAddress(address) {
+  //
+  //   if (!this.state.address.length === 33 ) {
+  //     alert('The address you provided is invalid. Please enter a valid address.');
+  //
+  //   } else {
+  //     this.handleSearch(this.state.address)
+  //   }
+  //
+  // }
+
+  handleSearch() {
+    this.setState({loadingData: true})
 
     const KEY = '1dice8EMZmqKvrGE4Qc9bUFf9PX3xaYDp';
     axios.get(`/blockchain/${KEY}`)
@@ -57,7 +71,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SearchBar handleChange={this.handleChange} handleState={this.handleState} address={this.state.address} />
+        <SearchBar handleSearch={this.handleSearch} address={this.state.address} />
 
         {this.state.loadingData ?
           <Loading />  :

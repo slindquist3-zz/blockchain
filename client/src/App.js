@@ -5,6 +5,7 @@ import { jsx } from '@emotion/core'
 import SearchBar from './components/SearchBar.js';
 import AddressDetails from './components/AddressDetails';
 import Loading from './components/animations/Loading.js';
+// import Welcome from './components/Welcome.js'
 
 class App extends Component {
   constructor(props) {
@@ -14,30 +15,27 @@ class App extends Component {
       address: '',
       balance: '',
       transactions: [],
-      loadingData: false
+      loadingData: false,
+      welcome: true
     };
+
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     // this.checkAddress = this.checkAddress.bind(this);
+
+    this.handleLoading = this.handleLoading.bind(this);
+
+  }
+
+  handleLoading() {
+    this.setState({welcome: false})
 
   }
 
   handleChange(event) {
     this.setState({address: event.target.value})
   }
-
-  //
-  // checkAddress(address) {
-  //
-  //   if (!this.state.address.length === 33 ) {
-  //     alert('The address you provided is invalid. Please enter a valid address.');
-  //
-  //   } else {
-  //     this.handleSearch(this.state.address)
-  //   }
-  //
-  // }
 
   handleSearch() {
     this.setState({loadingData: true})
@@ -57,7 +55,6 @@ class App extends Component {
                         loadingData: false});
                         //need to parse the balance when I pass to state
 
-        console.log(this.state);
 
       })
       .catch((error) => {
@@ -71,12 +68,22 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SearchBar handleSearch={this.handleSearch} address={this.state.address} />
 
-        {this.state.loadingData ?
-          <Loading />  :
-          <AddressDetails address={this.state.address} balance={this.state.balance} transactions={this.state.transactions} />
-         }
+        <SearchBar handleSearch={this.handleSearch}
+                   address={this.state.address} />
+
+
+
+
+      <Loading/>
+
+    <AddressDetails
+            address={this.state.address}
+            balance={this.state.balance}
+            transactions={this.state.transactions} />
+
+
+
 
       </div>
     );
@@ -84,3 +91,12 @@ class App extends Component {
 }
 
 export default App;
+
+//
+// {this.state.loadingData ?
+//   <Loading />  :
+//   <AddressDetails
+//     address={this.state.address}
+//     balance={this.state.balance}
+//     transactions={this.state.transactions} />
+//  }

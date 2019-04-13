@@ -6,6 +6,7 @@ import SearchBar from './components/SearchBar.js';
 import AddressDetails from './components/AddressDetails';
 import Loading from './components/animations/Loading.js';
 // import Welcome from './components/Welcome.js'
+import Blank from './';
 
 class App extends Component {
   constructor(props) {
@@ -16,29 +17,24 @@ class App extends Component {
       balance: '',
       transactions: [],
       loadingData: false,
-      welcome: true
+      welcome: true,
+      showTable: false
     };
-
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
-    // this.checkAddress = this.checkAddress.bind(this);
-
-    this.handleLoading = this.handleLoading.bind(this);
-
-  }
-
-  handleLoading() {
-    this.setState({welcome: false})
 
   }
 
   handleChange(event) {
-    this.setState({address: event.target.value})
+    this.setState({ address: event.target.value })
   }
 
+
+
   handleSearch() {
-    this.setState({loadingData: true})
+    this.setState({ loadingData: true,
+                    showTable: false })
 
     const KEY = '1dice8EMZmqKvrGE4Qc9bUFf9PX3xaYDp';
     axios.get(`/blockchain/${KEY}`)
@@ -51,14 +47,15 @@ class App extends Component {
         console.log(response.data.final_balance);
 
         this.setState({ transactions: response.data.txs,
-                        balance: response.data.final_balance,
-                        loadingData: false});
+                        balance: '$' + (response.data.final_balance.toLocaleString('en')),
+                        loadingData: false,
+                         showTable: true });
                         //need to parse the balance when I pass to state
-
 
       })
       .catch((error) => {
         // handle error
+        // make error component
         console.log('Error', error);
       })
 
@@ -72,18 +69,13 @@ class App extends Component {
         <SearchBar handleSearch={this.handleSearch}
                    address={this.state.address} />
 
+        {this.state.loadingData && <Loading/>}
 
-
-
-      <Loading/>
-
-    <AddressDetails
-            address={this.state.address}
-            balance={this.state.balance}
-            transactions={this.state.transactions} />
-
-
-
+        <AddressDetails
+                showTable={this.state.showTable}
+                address={this.state.address}
+                balance={this.state.balance}
+                transactions={this.state.transactions} />
 
       </div>
     );

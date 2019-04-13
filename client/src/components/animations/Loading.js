@@ -5,8 +5,11 @@ import ClipLoader from 'react-spinners/ClipLoader';
 
 const override = css`
     display: block;
-    margin: 0 auto;
+    margin: 20% 20%;
     border-color: red;
+    position: absolute;
+
+
 `;
 
 class Loading extends React.Component {
@@ -18,7 +21,7 @@ class Loading extends React.Component {
   }
   render() {
     return (
-      <div className='sweet-loading'>
+      <div className='Loading'>
         <ClipLoader
           css={override}
           sizeUnit={"px"}

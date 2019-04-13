@@ -12,22 +12,16 @@ class Balance extends Component {
 
   }
 
-  convertIntegerToDollars(integer) {
-    return integer.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-  }
-
-
   render() {
 
-    const Total = styled.h3`
+    const Value = styled.h3`
       color: purple;
     `;
 
 
     return (
       <div className="Balance">
-         {this.props.balance}
+        <div className="balance-value"></div>
       </div>
 
     )

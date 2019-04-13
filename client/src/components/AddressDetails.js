@@ -19,24 +19,28 @@ const AddressDetails = (props) =>  {
   }];
 
   const tableStyles = {
-      backgroundColor: 'white'
+      backgroundColor: 'white',
+      position: 'absolute',
+      top: '15%',
+      left: '50%',
+      transform: 'translate(-50%, 0)',
+      width: '80%'
   }
 
     return (
       <div className="AddressDetails">
 
-          <div>
-            <Header address={props.address} />
-            <Balance balance={props.balance}/>
-            <ReactTable
-              data={props.transactions}
-              columns={columns}
-              defaultPageSize = {10}
-              pageSizeOptions = {[10, 50]}
-              style={tableStyles} />
-          </div>
-
-
+      {props.showTable &&
+        <div>
+          <Header address={props.address} />
+          <Balance balance={props.balance}/>
+          <ReactTable
+            data={props.transactions}
+            columns={columns}
+            defaultPageSize = {10}
+            pageSizeOptions = {[10, 50]}
+            style={tableStyles} />
+        </div>}
       </div>
 
     )

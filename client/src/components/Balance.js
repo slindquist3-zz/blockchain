@@ -15,18 +15,24 @@ class Balance extends Component {
   render() {
 
     const Value = styled.h3`
-      color: purple;
-    `;
+    position: absolute;
+    top: 210px;
+    left: 10%;
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-weight: 300;
+    width: 80%;
+    `
 
     const balanceStyle = {
-      position: 'absolute',
-      top: '40%'
+
     }
 
 
     return (
       <div className="Balance" style={balanceStyle}>
-        <Value>{this.state.currentBalance}</Value>
+        <Value>Current Balance: {this.state.currentBalance}</Value>
       </div>
 
     )

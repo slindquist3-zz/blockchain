@@ -26,6 +26,14 @@ class App extends Component {
 
   }
 
+  handleAddressValidations() {
+
+    return "test!";
+
+
+  }
+
+
   handleChange(event) {
     this.setState({ address: event.target.value })
   }

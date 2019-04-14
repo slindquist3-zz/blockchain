@@ -22,8 +22,7 @@ const AddressDetails = (props) =>  {
   const tableStyles = {
       backgroundColor: 'white',
       position: 'absolute',
-      width: '80%',
-      left: '10%',
+      width: '100%',
       top: '250px',
       fontSize: '10px',
       border: '1px solid black'
@@ -32,11 +31,24 @@ const AddressDetails = (props) =>  {
   const detailsContainer = {
     position: 'relative',
     minWidth: '300px',
-    margin: 'auto'
+    margin: '0 20px'
   }
 
   const AddressDetailsStyles = {
     position: 'relative'
+  }
+
+  function timeConverter(UNIX_timestamp){
+    var a = new Date(UNIX_timestamp * 1000);
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var hour = a.getHours();
+    var min = a.getMinutes();
+    var sec = a.getSeconds();
+    var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+    return time;
   }
 
     return (

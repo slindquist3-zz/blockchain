@@ -5,19 +5,23 @@
   "dependencies": {
     "@emotion/core": "^10.0.10",
     "axios": "^0.18.0",
+    "babel-jest": "^24.7.1",
     "eslint": "^5.16.0",
+    "jest": "^24.7.1",
     "moment": "^2.24.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-scripts": "2.0.5",
     "react-spinners": "^0.5.4",
     "react-table": "^6.9.2",
+    "react-test-renderer": "^16.8.6",
+    "react-testing-library": "^6.1.2",
     "styled-components": "^4.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:5000/",

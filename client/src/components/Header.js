@@ -32,19 +32,15 @@ import styled, {keyframes} from 'styled-components';
       border: none;
       border-radius: 50px;
       margin-top: 60px;
-      width: 90%;
+      width: 100%;
       margin-left: 10%;
       padding-left: 50px;
       transform: translate(-50px, 0px);
       margin-left: 80px;
 
-
       @media (max-width: 700px) {
-        width:70%;
-        margin-right: 10%;
-     }
 
-    `;
+     }`;
 
     const Button = styled.button`
       width: 100px;
@@ -61,40 +57,40 @@ import styled, {keyframes} from 'styled-components';
       border: 2px solid white;
       margin-top: 20px;
       float:right;
-      margin-right: 35%;
-      transform: translate(10px, 0px);
+      margin-left: 30px;
+      transform: translate(80px, 0px);
+
 
 
 
       @media (max-width: 700px) {
-        margin-right: 10%;
 
-     }
-    `;
+     }`;
 
-    const headerStyle = {
-      position: 'absolute',
-      backgroundColor: '#004a7c',
-      width: `100%`,
-      paddingBottom: '40px',
-      display: 'block'
-    };
 
     const SearchContainer = styled.div`
-      width: 60%;
+
+      width: 70%;
 
       @media (max-width: 700px) {
-        width: 100%;
 
-     }`
+     }`;
+
+     const headerStyle = {
+       position: 'absolute',
+       backgroundColor: '#004a7c',
+       width: `100%`,
+       paddingBottom: '40px',
+       display: 'block'
+     };
 
     return (
       <div className="Header" style={headerStyle}>
             <SearchContainer>
               <SearchIcon src={require("../assets/search-icon.png" )}/>
               <AddressInput type="text" placeholder="Enter Address" onChange={props.handleChange}/>
+              <Button onClick={props.handleSearch}>Search</Button>
             </SearchContainer>
-            <Button onClick={props.handleSearch}>Search</Button>
       </div>
     )
 

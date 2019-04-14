@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { jsx } from '@emotion/core'
 
-import SearchBar from './components/SearchBar.js';
+import Header from './components/Header.js';
 import AddressDetails from './components/AddressDetails';
 import Loading from './components/animations/Loading.js';
 // import Welcome from './components/Welcome.js'
@@ -30,8 +30,6 @@ class App extends Component {
     this.setState({ address: event.target.value })
   }
 
-
-
   handleSearch() {
     this.setState({ loadingData: true,
                     showTable: false })
@@ -51,7 +49,6 @@ class App extends Component {
                         loadingData: false,
                          showTable: true });
                         //need to parse the balance when I pass to state
-
       })
       .catch((error) => {
         // handle error
@@ -66,7 +63,7 @@ class App extends Component {
     return (
       <div className="App">
 
-        <SearchBar handleSearch={this.handleSearch}
+        <Header handleSearch={this.handleSearch}
                    address={this.state.address} />
 
         {this.state.loadingData && <Loading/>}

@@ -6,43 +6,41 @@ import Balance from './Balance.js';
 import ReactTable from "react-table";
 import 'react-table/react-table.css';
 
-
 const AddressDetails = (props) =>  {
 
   const columns = [{
-
-
     Header: 'Transactions',
     columns:
       [{ Header: 'Hash',
       accessor: 'hash',
-      width: 600 },
+      width: 400 },
       { Header: 'Time',
       accessor: 'time',
       width: 100 }]
     }];
 
-
-
   const tableStyles = {
       backgroundColor: 'white',
       position: 'absolute',
-      top: '35%',
-      left: '50%',
-      transform: 'translate(-50%, 0)',
+      width: '80%',
+      left: '10%',
+      top: '250px',
+      fontSize: '10px',
+      border: '1px solid black'
   }
 
   const detailsContainer = {
-    position: 'absolute',
-    maxWidth: '80%',
+    position: 'relative',
     minWidth: '300px',
-    left: '50%',
-    transform: 'translate(-50%, 0)',
-    top: '30%'
+    margin: 'auto'
+  }
+
+  const AddressDetailsStyles = {
+    position: 'relative'
   }
 
     return (
-      <div className="AddressDetails">
+      <div className="AddressDetails" style={AddressDetailsStyles}>
 
       {props.showTable &&
         <div className="detailsContainer" style={detailsContainer}>
@@ -50,8 +48,8 @@ const AddressDetails = (props) =>  {
           <ReactTable
             data={props.transactions}
             columns={columns}
-            defaultPageSize = {10}
-            pageSizeOptions = {[10, 50]}
+            defaultPageSize = {15}
+            pageSizeOptions = {[15, 50]}
             style={tableStyles} />
         </div>}
       </div>

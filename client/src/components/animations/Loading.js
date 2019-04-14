@@ -1,18 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/core';
-// First way to import
+
 import ClipLoader from 'react-spinners/ClipLoader';
-
-const override = css`
-    display: block;
-    margin: 25% 45%;
-    border-color: red;
-    position: absolute;
-    transform: translate(0, -50%);
-
-
-
-`;
 
 class Loading extends React.Component {
   constructor(props) {
@@ -21,7 +10,17 @@ class Loading extends React.Component {
       loading: true
     }
   }
+
   render() {
+
+    const override = css`
+        display: block;
+        margin: 25% 45%;
+        border-color: red;
+        position: absolute;
+        transform: translate(0, -50%);
+    `;
+
     return (
       <div className='Loading'>
         <ClipLoader

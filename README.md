@@ -6,7 +6,7 @@
 
 ## High-level Overview of App Architecture
 
-* The parent App component maintains the state of the app and holds the functions necessary for fetching data. The Loading component will render through a boolean when a valid request is made the API. A Header contains the search input and button that triggers events that update state after a search request. Below the Header is the AddressDetails component, which passes data from the response to Balance and ReactTable component to be rendered in a grid.
+* The parent App component maintains the state of the app and holds the functions necessary for fetching data. The Loading component will render through a boolean when a valid request is made the API. A Header contains the search input and button that triggers events to update state after a search request. Below the Header is the AddressDetails component, which passes data from the response to the Balance and ReactTable components to be rendered in a grid.
 
 ## Challenges
 
@@ -35,13 +35,14 @@
 
 ## Improvements for Future Iterations
 
-* If I were to build the second iteration of this project, I would in include Unit Testing. I'm familiar with Rspec and Jasmine, but I understand the setup for Jest is fairly straightforward, so I would include that testing library.
+* If I were to build the second iteration of this project, I would in include Unit Testing. I've worked with Rspec and Jasmine/Karma testing tools before, and I understand the setup for Jest is intended for Create React App projects, so I would try including that testing library.
 
 * I would also include validations for the user's input address and perhaps an Error component that renders inline errors and prevents submissions if a user inputs an invalid search or a SQL injection.
+
+* I believe there are better performance solutions for dynamically responding to database changes. While my solution of querying the database every 30 seconds works for the purposes of this project, I would research other solutions in the future like Websockets or another tool that could minimize the amount of calls I need to make to the Blockchain API.
 
 
 //plan:
 1. test dynamic querying
 2. write quick validation function
-4. remove all extra code
 5. deploy to heroku and test

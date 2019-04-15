@@ -9,7 +9,8 @@ class Header extends Component {
 
     shouldComponentUpdate() {
       return false;
-      //componenet was rerending during typing
+      //component was rerending with each new character, preventing typing
+      //--quick fix for now but would spend more time making Input a controlled component
     }
 
     render() {

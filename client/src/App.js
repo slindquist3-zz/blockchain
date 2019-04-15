@@ -29,6 +29,8 @@ class App extends Component {
   }
 
   handleChange(event) {
+    event.preventDefault()
+
     this.setState({ address: event.target.value })
   }
 

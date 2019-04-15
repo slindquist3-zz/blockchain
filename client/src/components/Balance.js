@@ -8,31 +8,58 @@ class Balance extends Component {
 
     super(props);
 
-    this.state = { currentBalance: props.balance}
+    this.state = { currentBalance: props.balance,
+                   address: props.address }
 
   }
 
   render() {
+    console.log("this.state.address");
 
-    const Value = styled.h3`
-    position: absolute;
-    top: 210px;
-    left: 10%;
+    const Value = styled.p`
+    position: relative;
     background-color: white;
-    padding-top: 20px;
-    padding-bottom: 20px;
     font-weight: 300;
-    width: 80%;
-    `
+    width: 100%;
+    display: block;
+    border: 3px solid black;
 
-    const balanceStyle = {
+    @media (max-width: 700px) {
+      font-size: 14px;
+    }`;
+
+
+    const ValueStyle = {
+
+    }
+
+    const ValueTextStyle = {
+      display: 'block',
+      padding: '10px',
+      border: '1px solid gray'
+
+
+    }
+
+    const ValueTextStyleKey = {
+      fontWeight: '600'
+
+    }
+
+    const BalanceStyle = {
+
+      marginTop: '150px'
 
     }
 
 
+
     return (
-      <div className="Balance" style={balanceStyle}>
-        <Value>Current Balance: {this.state.currentBalance}</Value>
+      <div className="Balance" style={BalanceStyle}>
+        <Value style={ValueStyle}>
+          <span style={ValueTextStyle}><span className={ValueTextStyleKey}>Address</span>: {this.state.address}</span>
+          <span style={ValueTextStyle}><span className={ValueTextStyleKey}>Current Balance</span>: {this.state.currentBalance}</span>
+        </Value>
       </div>
 
     )

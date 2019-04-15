@@ -15,11 +15,15 @@ class Loading extends React.Component {
 
     const override = css`
         display: block;
-        margin: 25% 45%;
-        border-color: red;
-        position: absolute;
-        transform: translate(0, -50%);
+        margin-left: 30%;
+        margin-top:120px;
+        transform: translate(-20%, 0)
+
     `;
+
+    const LoadingStyles = {
+
+    }
 
     return (
       <div className='Loading'>

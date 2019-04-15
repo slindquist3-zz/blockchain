@@ -20,7 +20,7 @@ import styled, {keyframes} from 'styled-components';
      width: 30px;
      position: absolute;
      z-index: 50;
-     top: 65px;
+     top: 85px;
      left: 40px;
    `;
 
@@ -37,10 +37,8 @@ import styled, {keyframes} from 'styled-components';
       padding-left: 50px;
       transform: translate(-50px, 0px);
       margin-left: 80px;
-
-      @media (max-width: 700px) {
-
-     }`;
+      border: 3px solid black;
+    `;
 
     const Button = styled.button`
       width: 100px;
@@ -52,40 +50,37 @@ import styled, {keyframes} from 'styled-components';
       color: white;
       font-size: 14px;
       display: inline-block;
-      font-weight: 400;
-      letter-spacing: 1px;
-      border: 2px solid white;
+      font-weight: 600;
+      letter-spacing: 2px;
+      border: 3px solid black;
       margin-top: 20px;
       float:right;
-      margin-left: 30px;
-      transform: translate(80px, 0px);
+      transform: translate(85px, 0px);
+      transition: all 0.3s ease 0s;
+      &:hover {
+        background:white;
+        color: black;
+      }
+      &:active {
+        background:black;
+        color: white;
 
 
-
-
-      @media (max-width: 700px) {
-
-     }`;
-
+    `;
 
     const SearchContainer = styled.div`
-
-      width: 70%;
-
-      @media (max-width: 700px) {
-
-     }`;
+      width: 60%;
+    `;
 
      const headerStyle = {
-       position: 'absolute',
+       position: 'relative',
        backgroundColor: '#004a7c',
        width: `100%`,
-       paddingBottom: '40px',
-       display: 'block'
-     };
+       paddingBottom: '100px'     };
 
     return (
       <div className="Header" style={headerStyle}>
+         <a href="https://www.blockchain.com/" target="_blank"><BlockchainLogo src={require("../assets/white-blockchain.svg")} /></a>
             <SearchContainer>
               <SearchIcon src={require("../assets/search-icon.png" )}/>
               <AddressInput type="text" placeholder="Enter Address" onChange={props.handleChange}/>

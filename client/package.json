@@ -1,13 +1,20 @@
 {
   "name": "create-react-app-express",
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./setupEnzyme.js"
+    ]
+  },
   "version": "0.1.0",
   "license": "MIT",
   "dependencies": {
     "@emotion/core": "^10.0.10",
     "axios": "^0.18.0",
     "babel-jest": "^24.7.1",
+    "enzyme-adapter-react-16": "^1.12.1",
     "eslint": "^5.16.0",
     "jest": "^24.7.1",
+    "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
@@ -30,5 +37,10 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "enzyme": "^3.9.0"
+  }
 }

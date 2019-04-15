@@ -9,7 +9,12 @@ import 'react-table/react-table.css';
 const AddressDetails = (props) =>  {
 
   const columns = [{
-    Header: 'Transactions',
+    Header: 'Transactions', Header: () => (
+          <div
+            style={{
+              textAlign:"left"
+            }}
+          >Transactions</div>),
     columns:
       [{ Header: 'Hash',
       accessor: 'hash',
@@ -19,23 +24,28 @@ const AddressDetails = (props) =>  {
       width: 100 }]
     }];
 
+
   const tableStyles = {
       backgroundColor: 'white',
       position: 'absolute',
       width: '100%',
-      top: '250px',
+      top: '100px',
       fontSize: '10px',
-      border: '1px solid black'
+      border: '3px solid black'
   }
 
   const detailsContainer = {
     position: 'relative',
     minWidth: '300px',
-    margin: '0 20px'
+    margin: '0 20px',
+    width: '100%'
   }
 
   const AddressDetailsStyles = {
-    position: 'relative'
+    position: 'relative',
+    marginTop: '-130px',
+    width: '90%',
+    marginRight:'20px'
   }
 
   function timeConverter(UNIX_timestamp){
@@ -56,7 +66,7 @@ const AddressDetails = (props) =>  {
 
       {props.showTable &&
         <div className="detailsContainer" style={detailsContainer}>
-          <Balance balance={props.balance}/>
+          <Balance balance={props.balance} address={props.address}/>
           <ReactTable
             data={props.transactions}
             columns={columns}

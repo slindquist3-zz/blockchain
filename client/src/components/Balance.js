@@ -5,12 +5,10 @@ import styled from 'styled-components';
 class Balance extends Component {
 
   constructor(props) {
-
     super(props);
 
     this.state = { currentBalance: props.balance,
                    address: props.address }
-
   }
 
   render() {
@@ -28,7 +26,6 @@ class Balance extends Component {
       font-size: 14px;
     }`;
 
-
     const ValueTextStyle = {
       display: 'block',
       padding: '10px',
@@ -37,14 +34,11 @@ class Balance extends Component {
 
     const ValueTextStyleKey = {
       fontWeight: '600'
-
     }
 
     const BalanceStyle = {
       marginTop: '150px'
     }
-
-
 
     return (
       <div className="Balance" style={BalanceStyle}>

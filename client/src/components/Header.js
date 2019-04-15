@@ -64,6 +64,7 @@ import styled, {keyframes} from 'styled-components';
       &:active {
         background:black;
         color: white;
+      }
     `;
 
     const SearchContainer = styled.div`

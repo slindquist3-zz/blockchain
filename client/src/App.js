@@ -103,8 +103,6 @@ class App extends Component {
     return time;
   }
 
-
-
   render() {
     console.log('Am I getting re-rendered');
     return (

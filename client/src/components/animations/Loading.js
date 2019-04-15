@@ -18,12 +18,7 @@ class Loading extends React.Component {
         margin-left: 30%;
         margin-top:120px;
         transform: translate(-20%, 0)
-
     `;
-
-    const LoadingStyles = {
-
-    }
 
     return (
       <div className='Loading'>

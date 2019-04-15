@@ -21,10 +21,8 @@ const AddressDetails = (props) =>  {
       width: 400 },
       { Header: 'Time',
       accessor: 'time',
-
       width: 100 }]
     }];
-
 
   const tableStyles = {
       backgroundColor: 'white',
@@ -49,7 +47,6 @@ const AddressDetails = (props) =>  {
     marginRight:'20px'
   }
 
-
     return (
       <div className="AddressDetails" style={AddressDetailsStyles}>
 
@@ -64,9 +61,7 @@ const AddressDetails = (props) =>  {
             style={tableStyles} />
         </div>}
       </div>
-
     )
-
 }
 
 export default AddressDetails;

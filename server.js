@@ -21,12 +21,9 @@ app.get('/blockchain/:address', (req, res) => {
   axios.get(`https://blockchain.info/rawaddr/${req.params.address}`)
     .then((response) => {
 
-      // return transactions
       console.log(response.data);
-      // return balance
 
       res.json(response.data);
-      // might need a helper function to massage this data
 
     })
     .catch((error) => {

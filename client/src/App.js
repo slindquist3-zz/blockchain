@@ -14,7 +14,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      address: '1dice8EMZmqKvrGE4Qc9bUFf9PX3xaYDp',
+      address: '',
       balance: '',
       transactions: [],
       loadingData: false,
@@ -26,8 +26,6 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.getBlockChainData = this.getBlockChainData.bind(this);
-    this.handleValidation = this.handleValidation.bind(this);
-
   }
 
   handleChange(event) {
@@ -47,15 +45,11 @@ class App extends Component {
         console.log(isEqual(transactions[0], response.data.txs[0]))
        if (!isEqual(transactions[0], response.data.txs[0])) {
 
-         //massage data here
-
-
         this.setState({ transactions: response.data.txs,
           balance: '$' + (response.data.final_balance.toLocaleString('en')),
           loadingData: false,
            showTable: true });
        }
-
 
       })
       .catch((error) => {
@@ -64,43 +58,22 @@ class App extends Component {
         alert('Please double-check the address and try searching again.')
       })
   }
-  //
-  handleValidation(address) {
 
-    console.log("handeled validation!");
-  }
 
   handleSearch(address) {
-
-    if (this.handleValidation(address)) {
-      console.log("validated");
-    }
 
 
     // const ADDRESS = '1dice8EMZmqKvrGE4Qc9bUFf9PX3xaYDp';
     this.setState({ loadingData: true,
                     showTable: false,
-                  interval: setInterval(() => {
-                    console.log('Made another call to api');
-                    this.getBlockChainData(this.state.address);
-                  }, 30000)
-                });
+                    interval: setInterval(() => {
+                      console.log('Made another call to api');
+                      this.getBlockChainData(this.state.address);
+                    }, 30000)
+                 });
 
     this.getBlockChainData(this.state.address);
 
-  }
-
-  convertTime(UNIX_timestamp){
-    var a = new Date(UNIX_timestamp * 1000);
-    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    var year = a.getFullYear();
-    var month = months[a.getMonth()];
-    var date = a.getDate();
-    var hour = a.getHours();
-    var min = a.getMinutes();
-    var sec = a.getSeconds();
-    var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
-    return time;
   }
 
   render() {
@@ -108,7 +81,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header handleSearch={this.handleSearch}
-                address={this.state.address} />
+                address={this.state.address}
+                handleChange={this.handleChange}/>
 
         {this.state.loadingData && <Loading/>}
 

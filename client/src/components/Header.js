@@ -20,25 +20,25 @@ import styled, {keyframes} from 'styled-components';
      width: 30px;
      position: absolute;
      z-index: 50;
-     top: 85px;
-     left: 40px;
+     top: 88px;
+     left: 43px;
    `;
 
-   const AddressInput = styled.input`
-      height: 40px;
-      position: relative;
-      display: inline;
-      font-size: 14px;
-      border: none;
-      border-radius: 50px;
-      margin-top: 60px;
-      width: 100%;
-      margin-left: 10%;
-      padding-left: 50px;
-      transform: translate(-50px, 0px);
-      margin-left: 80px;
-      border: 3px solid black;
-    `;
+   const AddressInput = {
+      height: "40px",
+      position: 'relative',
+      display: 'inline',
+      fontSize: '14px',
+      border: 'none',
+      borderRadius: '50px',
+      marginTop: '60px',
+      width: '100%',
+      marginLeft: '10%',
+      paddingLeft: '50px',
+      transform: 'translate(-50px, 0px)',
+      marginLeft: '80px',
+      border: '3px solid black'
+    }
 
     const Button = styled.button`
       width: 100px;
@@ -83,7 +83,7 @@ import styled, {keyframes} from 'styled-components';
          <a href="https://www.blockchain.com/" target="_blank"><BlockchainLogo src={require("../assets/white-blockchain.svg")} /></a>
             <SearchContainer>
               <SearchIcon src={require("../assets/search-icon.png" )}/>
-              <AddressInput type="text" placeholder="Enter Address" onChange={props.handleChange}/>
+              <input style={AddressInput} type="text" value={props.address} placeholder="Enter Address" onChange={props.handleChange}/>
               <Button onClick={props.handleSearch}>Search</Button>
             </SearchContainer>
       </div>

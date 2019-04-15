@@ -1,12 +1,11 @@
 {
-  "name": "create-react-app-express",
+  "name": "scott-lindquist-blockchain-code-challenge-front-end",
   "jest": {
     "setupFilesAfterEnv": [
       "./setupEnzyme.js"
     ]
   },
   "version": "0.1.0",
-  "license": "MIT",
   "dependencies": {
     "@emotion/core": "^10.0.10",
     "axios": "^0.18.0",

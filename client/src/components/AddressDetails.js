@@ -36,7 +36,7 @@ const AddressDetails = (props) =>  {
   const detailsContainer = {
     position: 'relative',
     minWidth: '300px',
-    margin: '0 20px',
+    margin: '0 15px',
     width: '100%'
   }
 

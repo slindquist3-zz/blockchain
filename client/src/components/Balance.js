@@ -29,16 +29,10 @@ class Balance extends Component {
     }`;
 
 
-    const ValueStyle = {
-
-    }
-
     const ValueTextStyle = {
       display: 'block',
       padding: '10px',
       border: '1px solid gray'
-
-
     }
 
     const ValueTextStyleKey = {
@@ -47,16 +41,14 @@ class Balance extends Component {
     }
 
     const BalanceStyle = {
-
       marginTop: '150px'
-
     }
 
 
 
     return (
       <div className="Balance" style={BalanceStyle}>
-        <Value style={ValueStyle}>
+        <Value>
           <span style={ValueTextStyle}><span className={ValueTextStyleKey}>Address</span>: {this.state.address}</span>
           <span style={ValueTextStyle}><span className={ValueTextStyleKey}>Current Balance</span>: {this.state.currentBalance}</span>
         </Value>

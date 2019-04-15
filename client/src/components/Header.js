@@ -64,8 +64,6 @@ import styled, {keyframes} from 'styled-components';
       &:active {
         background:black;
         color: white;
-
-
     `;
 
     const SearchContainer = styled.div`
@@ -76,7 +74,8 @@ import styled, {keyframes} from 'styled-components';
        position: 'relative',
        backgroundColor: '#004a7c',
        width: `100%`,
-       paddingBottom: '100px'     };
+       paddingBottom: '100px'
+     };
 
     return (
       <div className="Header" style={headerStyle}>

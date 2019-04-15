@@ -38,11 +38,7 @@ class App extends Component {
 
     const {transactions} = this.state;
 
-    //validattion should happen before this.
-
     axios.get(`/blockchain/${address}`)
-
-    // axios.get(`/blockchain/${this.state.address}`)
 
       .then((response) => {
 
@@ -50,12 +46,14 @@ class App extends Component {
         console.log(response.data.final_balance);
         console.log(isEqual(transactions[0], response.data.txs[0]))
        if (!isEqual(transactions[0], response.data.txs[0])) {
+
+         //massage data here
+
+
         this.setState({ transactions: response.data.txs,
           balance: '$' + (response.data.final_balance.toLocaleString('en')),
           loadingData: false,
            showTable: true });
-          //need to parse the balance when I pass to state
-
        }
 
 
@@ -91,6 +89,20 @@ class App extends Component {
     this.getBlockChainData(this.state.address);
 
   }
+
+  convertTime(UNIX_timestamp){
+    var a = new Date(UNIX_timestamp * 1000);
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var hour = a.getHours();
+    var min = a.getMinutes();
+    var sec = a.getSeconds();
+    var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+    return time;
+  }
+
 
 
   render() {

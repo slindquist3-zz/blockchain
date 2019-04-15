@@ -59,9 +59,9 @@ class App extends Component {
 
       })
       .catch((error) => {
-        // handle error
-        // make error component
         console.log('Error', error);
+        this.setState({loadingData: false});
+        alert('Please double-check the address and try searching again.')
       })
   }
   //
@@ -73,7 +73,7 @@ class App extends Component {
   handleSearch(address) {
 
     if (this.handleValidation(address)) {
-      return false
+      console.log("validated");
     }
 
 
